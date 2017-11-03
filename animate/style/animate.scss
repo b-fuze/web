@@ -36,11 +36,16 @@ body, html {
   left: 0px;
   width: 100%;
   height: 100%;
+  
+  transition: opacity 1s $smooth-anim, transform 1s $smooth-anim;
 }
 
 .post-submit {
-  opacity: 0;
+  transform: scale(1.8);
   pointer-events: none;
+  
+  opacity: 0;
+  transition: opacity 1.4s $smooth-anim 250ms, transform 1.4s $smooth-anim 250ms;
 }
 
 .canvas {
@@ -66,7 +71,7 @@ body, html {
     
     &.intro-hover {
       .floaties {
-        transition: transform 2.5s $smooth-anim 50ms;
+        transition: transform 2.5s $smooth-anim 50ms, margin 1s $smooth-anim;
         transform: scale(0.95);
       }
     }
@@ -74,11 +79,13 @@ body, html {
   
   &.stage-subscribed {
     .pre-submit {
+      transform: scale(0.5);
       opacity: 0;
       pointer-events: none;
     }
     
     .post-submit {
+      transform: scale(1);
       opacity: 1;
       pointer-events: all;
     }
@@ -193,9 +200,29 @@ body, html {
       box-sizing: border-box;
       
       font-size: 20px;
+      font-weight: normal;
+      font-family: 'Open Sans';
       background: rgba(0, 0, 0, 0.15);
       
-      color: $text-main;
+      color: $base;
+      
+      $placeholder-opacity: 0.2;
+      &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        opacity: $placeholder-opacity;
+      }
+      
+      &::-moz-placeholder { /* Firefox 19+ */
+        opacity: $placeholder-opacity;
+      }
+      
+      &:-ms-input-placeholder { /* IE 10+ */
+        opacity: $placeholder-opacity;
+      }
+      
+      &:-moz-placeholder { /* Firefox 18- */
+        opacity: $placeholder-opacity;
+        font-family: 'Open Sans';
+      }
     }
     
     button {
@@ -206,10 +233,33 @@ body, html {
       
       text-transform: uppercase;
       cursor: pointer;
+      transition: opacity 350ms ease, background 350ms ease;
+      
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
       
       &:hover {
         background: rgba(255, 255, 255, 0.15);
       }
+    }
+  }
+  
+  .thanks {
+    @extend .ab-center;
+    
+    width: 100%;
+    height: 250px;
+    
+    font-family: Roboto;
+    
+    text-align: center;
+    line-height: 250px;
+    font-size: 45px;
+    
+    span {
+      color: $base;
     }
   }
 }
@@ -226,7 +276,7 @@ body, html {
   
   pointer-events: none;
   overflow: hidden;
-  transition: transform 1.5s $smooth-anim 75ms;
+  transition: transform 1.5s $smooth-anim 75ms, margin 1s $smooth-anim;
   
   .floaty {
     position: absolute;

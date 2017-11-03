@@ -16,7 +16,7 @@ class Canvas {
     // Init
     this.fillFloaties();
     
-    // Add events
+    // Add intro events
     const introBtn = jSh(".intro")[0];
     let clicked    = false;
     
@@ -35,7 +35,59 @@ class Canvas {
       document.body.classList.add("stage-enter");
       
       // Focus on email field
-      jSh("#email").focus();
+      subscribeInput.focus();
+    });
+    
+    // Add text input events
+    const subscribeBtn   = jSh("#subscribe-btn");
+    const subscribeInput = jSh("#email-fuze");
+    
+    subscribeInput.addEventListener("input", function() {
+      if (/\s*[\da-z\-\.]+@([\da-z\-]+\.)+[\da-z]{2,}\s*/i.test(this.value)) {
+        subscribeBtn.classList.remove("disabled");
+      } else {
+        subscribeBtn.classList.add("disabled");
+      }
+    });
+    
+    // Add subscribe events
+    subscribeBtn.addEventListener("click", function() {
+      // Stop floaty mouse move events
+      beforeSubscribe = false;
+      
+      // Update email span
+      jSh("#subscription-value").textContent = subscribeInput.value.trim();
+      
+      // Show thank you text with animation
+      document.body.classList.add("stage-subscribed");
+    });
+    
+    // Add sliding floaties event
+    let floatyTimeout      = null;
+    let floatyTimeoutCount = 0;
+    let beforeSubscribe    = true;
+    
+    window.addEventListener("mousemove", (e) => {
+      clearTimeout(floatyTimeout);
+      floatyTimeoutCount++;
+      
+      if (beforeSubscribe) {
+        const floatyFunction = () => {
+          floatyTimeoutCount = 0;
+          var maxSlide = 25; // px
+          
+          this._floatyMain.css({
+            marginLeft: (-maxSlide + (maxSlide * 2 ) * (e.clientX / innerWidth)) + "px",
+            marginTop: (-maxSlide + (maxSlide * 2 ) * (e.clientY / innerHeight)) + "px"
+          });
+        };
+        
+        if (floatyTimeoutCount > 3) {
+          floatyFunction();
+        } else {
+          floatyTimeout = setTimeout(floatyFunction, 25);
+        }
+      }
     });
   }
   
