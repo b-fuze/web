@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mutation Observer</title>
+    <script type="text/javascript">
+      // @ts-check
+      window.addEventListener("DOMContentLoaded", function() {
+        const t = document.querySelector("#observe");
+
+        const observe = new MutationObserver(function(mlist, observer) {
+          console.log("Observed mutations", mlist);
+        });
+
+        observe.observe(t, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+        });
+
+        // Random additions
+        const b = document.querySelector("#go");
+
+        b.addEventListener("click", function() {
+          const maxRand = 150 + Math.ceil(Math.random() * 150);
+
+          function randomName(len = 8) {
+            let name = "";
+
+            for (let i=0; i<len; i++) {
+              name += String.fromCharCode(97 + Math.floor(Math.random() * 26));
+            }
+
+            return name;
+          }
+
+          function mutate(elm, mutations, first) {
+            const randMutations = Math.min(Math.ceil(Math.random() * 5), maxRand - mutations.n);
+            let cur = 0;
+
+            while (mutations.n < maxRand && cur !== randMutations) {
+              ting:
+              switch (Math.floor(Math.random() * 6)) {
+                case 0: // Change existing attr
+                  if (elm.attributes.length) {
+                    const attribute = Object
+                                        .getOwnPropertyNames(elm.attributes)
+                                        .slice(elm.attributes.length)[Math.floor(Math.random() * elm.attributes.length)];
+                    elm.setAttribute(attribute, randomName());
+                    mutations.n++;
+                    console.log("CHANGE ATTR", attribute);
+                    break ting;
+                  }
+                case 1: // Set new attr
+                  const aname = randomName();
+                  elm.setAttribute(aname, randomName());
+                  console.log("NEW ATTR", aname);
+                  mutations.n++;
+                  break ting;
+                case 2: { // Delete childnode
+                  const children = Array.from(elm.childNodes);
+
+                  if (children.length) {
+                    const child = children[Math.floor(Math.random() * children.length)];
+                    elm.removeChild(child);
+                    mutations.n++;
+                    console.log("RM CHLD", child.tagName);
+                    break ting;
+                  }
+                }
+                case 3: { // Mutate child
+                  const children = Array.from(elm.children);
+
+                  if (children.length) {
+                    const child = children[Math.floor(Math.random() * children.length)];
+                    mutate(child, mutations);
+                    break ting;
+                  }
+                }
+                case 4: // Create child
+                  const tags = ["aside", "header", "footer", "div"];
+                  const tag = tags[Math.floor(Math.random() * tags.length)];
+                  elm.appendChild(document.createElement(tag));
+
+                  console.log("CRT CHLD", tag);
+                  mutations.n++;
+                  break ting;
+                case 5:
+                  // Create textNode
+                  const tnode = document.createTextNode(randomName(20));
+                  elm.appendChild(tnode);
+
+                  console.log("CRT TNODE", tnode);
+                  mutations.n++;
+                  break ting;
+              }
+
+              cur++;
+            }
+
+            if (first && mutations.n < maxRand) {
+              mutate(elm, mutations, first);
+            }
+          }
+
+          const mutations = {
+            n: 0,
+          };
+
+          mutate(t, mutations, true);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="observe"></div>
+    <button id="go">Test</button>
+  </body>
+</html>
