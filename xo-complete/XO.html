@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>
+			
+		</title>
+		<link rel="stylesheet" href="css/xocss.css" />
+		<script type="text/javascript" src="js/jShorts.js"></script>
+		<script type="text/javascript" src="js/QuadSmooth.lib.js"></script>
+		<script type="text/javascript" src="js/imgSeq.lib.js"></script>
+		<script type="text/javascript" src="js/QGamesIntro.js"></script>
+		<script type="text/javascript" src="js/qNotify.lib.js"></script>
+		<script type="text/javascript" src="js/main-XO-Lib.js"></script>
+		<style id="xosquaresize" type="text/css"></style>
+		<script type="text/javascript">
+			<!--
+			/*
+			window.onkeydown=function(e) {
+				alert(e.keyCode);
+			}*/
+			-->
+		</script>
+		
+	</head>
+	<body>
+		<div id="allhere" style="display: none;">
+		<img src="img/QGamesFCombine.png"/>
+		<img src="img/Glare.png"/>
+		<img src="img/pointer.png"/>
+		<img src="img/Refresh.png"/>
+		<img src="img/RefreshBlack.png"/>
+		<img src="img/Render.png"/>
+		<img src="img/XOBak.png"/>
+		<img src="img/XOSplit.png"/>
+		<img src="img/XOSplitIcon.png"/>
+		<img src="ChoosePlayers[sp-180].png">
+		</div>
+		<div id="bakshadow">
+		
+		</div>
+		<div id="topshadow"></div>
+		<div id="logo">
+			<div id="logoglare"></div>
+		</div>
+		<div id="startupnote">Click Anywhere To Start</div>
+		<div id="choosesym">
+		<center>
+		<div class="xocontainer" id="chsym1"></div><div class="xocontainer" id="chsym2"></div>
+		</center>
+		</div>
+		<div id="chooseplayers">
+			<div id="smallercenter">
+			<div class="xopchoose" id="xocp1"><div class="xopctext">1 player</div></div>
+			<div id="separator"></div>
+			<div class="xopchoose" id="xocp2"><div class="xopctext">2 players</div></div>
+			</div>
+		</div>
+		<div id="daddy">
+			<div id="pointscounter"><span id="hudpname1" class="name">Abdurocks:</span> <span id="hudppoints1" class="points">0 Points</span> | <span id="hudpname2" class="name">Hamz:</span> <span id="hudppoints2" class="points">0 Points</span></div>
+			<div id="maincontainer">
+				<div id="header">Tic-Tac-Toe</div>
+				<div id="refreshcontainer">
+					<div id="refresh"><canvas id="xorefreshctx" class="ctx" width="30" height="30"></canvas></div>
+				</div>
+			</div>
+			<div id="scover"></div>
+		</div>
+		<div id="notifications"><div class="xocontainer icon ic1"></div><span id="firstplayer" class="pname">FirstName</span><span id="fplayert" class="xopturn">'s turn</span> <span class="spacing"></span> <div class="xocontainer icon ic2"></div> <span id="secondplayer" class="pname">SecondName</span><span id="splayert" class="xopturn">'s turn</span> </div>
+		<div id="flash"></div>
+		<input type="text" id="nameinput"/>
+		<div id="xoround"><center><span class="sp2">XO Round: </span><span id="xoroundnum" class="sp">3</span></center></div>
+	</body>
+</html>

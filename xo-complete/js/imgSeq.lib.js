@@ -1,0 +1,60 @@
+/* Javascript File */
+//
+//	arg: {nd: node, count: frame_count, ms: milisecond_between_cycles, loop: loop, width: width or height of a frame, dir: "x" or "y", rest: amount of rest in miliseconds between each loop
+//	      end: ending function, endArg: arguments to pass to the end function}
+//	arg: {nd: x, count: x, ms: x, width: x, dir: x, loop: x, rest: x, end: x, endArg}
+//
+function imgSeq(arg) {
+	var th=this;
+	this.stopped=false;
+	this.pLoop=arg.loop;
+	this.nd=arg.nd;
+	this.currFrame=1;
+	this.frames=arg.count;
+	this.timeOut=null;
+	this.width=arg.width;
+	this.ms=arg.ms;
+	this.rest=arg.rest;
+	this.endFunc=arg.end;
+	this.endArg=arg.endArg;
+	this.start=function(){
+		this.stopped=false;
+		th.loop();
+	}
+	this.stop=function(){
+		th.stopped=true;
+		if (th.timeOut) {
+		 clearTimeout(th.timeOut);
+		 th.timeOut=null;
+		}
+		th.currFrame=1;
+		th.render();
+	}
+	this.loop=function(){
+		if (th.stopped)
+			return;
+		if (th.currFrame==th.frames) {
+			//th.currFrame=1;
+			if (th.endFunc)
+				th.endFunc(th.endArg);
+			th.render();
+			if (th.pLoop)
+			setTimeout(function(){th.loop();},th.ms);
+			return;
+		}
+		th.currFrame+=1;
+		th.render();
+		var dur;
+		if (th.currFrame+1==th.frames&&th.rest) {
+			dur=th.rest;
+		} else {
+			dur=th.ms;
+		}
+		th.timeOut=setTimeout(function(){th.loop();},dur);
+		return;
+	}
+	this.render=function(){
+		var offS=th.width*(th.currFrame-1);
+		th.nd.style.backgroundPosition="0px -"+offS+"px";
+	}
+}
