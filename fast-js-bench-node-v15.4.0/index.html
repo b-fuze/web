@@ -1,0 +1,464 @@
+<html style="background: #300a24; color: #fffffe; font-size: 14px;">
+  <body>
+ <pre><span style="color: #26A269;"><strong>➜  </strong></span><span style="color: #2AA1B3;"><strong>fast.js</strong></span> <span style="color: #12488B;"><strong>git:(</strong></span><span style="color: #C01C28;"><strong>master</strong></span><span style="color: #12488B;"><strong>) </strong></span><span style="color: #A2734C;"><strong>✗</strong></span> <span style="color: #26A269;">npm</span> run  <u style="text-decoration-style:single">bench</u> 
+
+&gt; fast.js@0.1.1 bench
+&gt; node ./bench/index.js
+
+  <span style="color: #D0CFCC;">Running 55 benchmarks, please wait...</span>
+
+  Native .fill() vs fast.fill() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array.prototype.fill() x 18,835,150 ops/sec ±0.90% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.fill() x 135,497,130 ops/sec ±0.75% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 619.38% faster <span style="color: #D0CFCC;">than</span> Array.prototype.fill().
+
+  Native .fill() vs fast.fill() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array.prototype.fill() x 15,234,170 ops/sec ±0.96% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.fill() x 37,336,393 ops/sec ±0.91% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 145.08% faster <span style="color: #D0CFCC;">than</span> Array.prototype.fill().
+
+  Native .fill() vs fast.fill() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array.prototype.fill() x 426,423 ops/sec ±1.05% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.fill() x 573,444 ops/sec ±0.96% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 34.48% faster <span style="color: #D0CFCC;">than</span> Array.prototype.fill().
+
+  Native .reduce() plucker vs fast.pluck()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Native Array::reduce() plucker x 1,479,699 ops/sec ±1.62% (86 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.pluck() x 553,562 ops/sec ±0.82% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.pluck() x 655,756 ops/sec ±1.00% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.pluck(): </span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 62.59% slower <span style="color: #D0CFCC;">than</span> Native Array::reduce() plucker.
+
+  Native Object.keys().map() value extractor vs fast.values()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Native Object.keys().map() x 6,177,785 ops/sec ±0.94% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.values() x 16,182,247 ops/sec ±0.82% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.values() x 5,589,291 ops/sec ±1.64% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.values() x 4,602,857 ops/sec ±0.91% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 161.94% faster <span style="color: #D0CFCC;">than</span> Native Object.keys().map().
+
+  Object.assign() vs fast.assign()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Object.assign() x 292,077 ops/sec ±2.85% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() x 254,702 ops/sec ±2.50% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() v0.0.4c x 256,619 ops/sec ±1.81% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() v0.0.4b x 208,965 ops/sec ±2.28% (86 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.assign() x 175,209 ops/sec ±3.01% (86 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 12.8% slower <span style="color: #D0CFCC;">than</span> Object.assign().
+
+  Object.assign() vs fast.assign() (3 arguments)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Object.assign() x 96,465 ops/sec ±3.59% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() x 74,372 ops/sec ±5.56% (83 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() v0.0.4c x 74,700 ops/sec ±5.66% (83 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() v0.0.4b x 75,187 ops/sec ±1.59% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 22.9% slower <span style="color: #D0CFCC;">than</span> Object.assign().
+
+  Object.assign() vs fast.assign() (10 arguments)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Object.assign() x 26,619 ops/sec ±5.31% (76 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() x 23,363 ops/sec ±4.30% (78 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() v0.0.4c x 23,247 ops/sec ±3.79% (82 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.assign() v0.0.4b x 21,450 ops/sec ±2.56% (82 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 12.23% slower <span style="color: #D0CFCC;">than</span> Object.assign().
+
+  Native string comparison vs fast.intern() (short)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Native comparison x 2,391,556,949 ops/sec ±1.10% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.intern() x 173,228,727 ops/sec ±1.07% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 92.76% slower <span style="color: #D0CFCC;">than</span> Native comparison.
+
+  Native string comparison vs fast.intern() (medium)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Native comparison x 1,965,429 ops/sec ±17.64% (78 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.intern() x 1,795,362,886 ops/sec ±0.89% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 91247.12% faster <span style="color: #D0CFCC;">than</span> Native comparison.
+
+  Native string comparison vs fast.intern() (long)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Native comparison x 14,780 ops/sec ±1.36% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.intern() x 170,046,338 ops/sec ±0.83% (89 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 1150445.07% faster <span style="color: #D0CFCC;">than</span> Native comparison.
+
+  Native try {} catch (e) {} vs fast.try()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> try...catch x 139,439 ops/sec ±1.14% (86 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.try() x 4,178,820 ops/sec ±1.11% (88 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 2896.88% faster <span style="color: #D0CFCC;">than</span> try...catch.
+
+  Native try {} catch (e) {} vs fast.try() (single function call)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> try...catch x 130,355 ops/sec ±1.01% (87 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.try() x 4,092,532 ops/sec ±1.19% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 3039.53% faster <span style="color: #D0CFCC;">than</span> try...catch.
+
+  Native .apply() vs fast.apply() (3 items, no context)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::apply() x 27,196,705 ops/sec ±1.02% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.apply() x 43,850,075 ops/sec ±2.59% (89 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 61.23% faster <span style="color: #D0CFCC;">than</span> Function::apply().
+
+  Native .apply() vs fast.apply() (3 items, with context)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::apply() x 27,994,321 ops/sec ±0.91% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.apply() x 37,578,111 ops/sec ±0.96% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 34.23% faster <span style="color: #D0CFCC;">than</span> Function::apply().
+
+  Native .apply() vs fast.apply() (6 items, no context)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::apply() x 28,267,306 ops/sec ±1.00% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.apply() x 39,813,573 ops/sec ±0.84% (88 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 40.85% faster <span style="color: #D0CFCC;">than</span> Function::apply().
+
+  Native .apply() vs fast.apply() (6 items, with context)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::apply() x 23,546,610 ops/sec ±1.09% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.apply() x 35,370,919 ops/sec ±1.80% (87 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 50.22% faster <span style="color: #D0CFCC;">than</span> Function::apply().
+
+  Native .apply() vs fast.apply() (10 items, no context)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::apply() x 22,334,246 ops/sec ±0.97% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.apply() x 21,696,651 ops/sec ±0.98% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 2.85% slower <span style="color: #D0CFCC;">than</span> Function::apply().
+
+  Native .apply() vs fast.apply() (10 items, with context)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::apply() x 21,549,467 ops/sec ±1.18% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.apply() x 20,996,628 ops/sec ±0.89% (89 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 2.57% slower <span style="color: #D0CFCC;">than</span> Function::apply().
+
+  fast.clone() vs underscore.clone() vs lodash.clone()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.clone() x 4,247,527 ops/sec ±1.02% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.clone() x 3,332,611 ops/sec ±0.97% (86 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.clone() x 1,389,855 ops/sec ±1.05% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 205.61% faster <span style="color: #D0CFCC;">than</span> lodash.clone().
+
+  Native .indexOf() vs fast.indexOf() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::indexOf() x 43,260,372 ops/sec ±0.99% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.indexOf() x 59,187,184 ops/sec ±0.97% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.indexOf() v0.0.2 x 58,609,797 ops/sec ±1.35% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.indexOf() x 27,808,233 ops/sec ±1.07% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.indexOf() x 56,944,682 ops/sec ±4.27% (87 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 36.82% faster <span style="color: #D0CFCC;">than</span> Array::indexOf().
+
+  Native .indexOf() vs fast.indexOf() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::indexOf() x 30,933,225 ops/sec ±1.24% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.indexOf() x 37,969,741 ops/sec ±0.73% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.indexOf() v0.0.2 x 38,877,130 ops/sec ±0.86% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.indexOf() x 22,453,076 ops/sec ±1.01% (87 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.indexOf() x 35,928,465 ops/sec ±1.04% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 22.75% faster <span style="color: #D0CFCC;">than</span> Array::indexOf().
+
+  Native .indexOf() vs fast.indexOf() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::indexOf() x 582,408 ops/sec ±0.81% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.indexOf() x 810,311 ops/sec ±1.16% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.indexOf() v0.0.2 x 748,999 ops/sec ±0.90% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.indexOf() x 811,855 ops/sec ±1.10% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.indexOf() x 698,696 ops/sec ±1.01% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 39.13% faster <span style="color: #D0CFCC;">than</span> Array::indexOf().
+
+  Native .lastIndexOf() vs fast.lastIndexOf() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::lastIndexOf() x 32,386,564 ops/sec ±0.85% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.lastIndexOf() x 132,844,910 ops/sec ±0.88% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.lastIndexOf() v0.0.2 x 134,815,601 ops/sec ±0.99% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.lastIndexOf() x 61,557,676 ops/sec ±1.17% (85 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.lastIndexOf() x 45,887,257 ops/sec ±2.66% (88 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 310.19% faster <span style="color: #D0CFCC;">than</span> Array::lastIndexOf().
+
+  Native .lastIndexOf() vs fast.lastIndexOf() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::lastIndexOf() x 16,153,858 ops/sec ±0.85% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.lastIndexOf() x 70,986,646 ops/sec ±0.74% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.lastIndexOf() v0.0.2 x 70,993,001 ops/sec ±0.82% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.lastIndexOf() x 37,439,776 ops/sec ±0.72% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.lastIndexOf() x 14,779,891 ops/sec ±0.92% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 339.44% faster <span style="color: #D0CFCC;">than</span> Array::lastIndexOf().
+
+  Native .lastIndexOf() vs fast.lastIndexOf() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::lastIndexOf() x 435,354 ops/sec ±0.73% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.lastIndexOf() x 1,716,368 ops/sec ±1.72% (87 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.lastIndexOf() v0.0.2 x 1,730,811 ops/sec ±1.42% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.lastIndexOf() x 1,383,447 ops/sec ±0.90% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.lastIndexOf() x 269,516 ops/sec ±0.86% (89 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 294.25% faster <span style="color: #D0CFCC;">than</span> Array::lastIndexOf().
+
+  Native .bind() vs fast.bind()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::bind() x 42,899,417 ops/sec ±0.96% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.bind() x 15,126,837 ops/sec ±0.61% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.bind() v0.0.2 x 10,810,601 ops/sec ±0.78% (94 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.bind() x 795,659 ops/sec ±1.37% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.bind() x 250,682 ops/sec ±0.88% (94 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 64.74% slower <span style="color: #D0CFCC;">than</span> Function::bind().
+
+  Native .bind() vs fast.bind() with prebound functions
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::bind() x 73,273,368 ops/sec ±0.84% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.bind() x 40,436,224 ops/sec ±0.77% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.bind() v0.0.2 x 26,247,572 ops/sec ±2.01% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.bind() x 4,187,119 ops/sec ±1.00% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.bind() x 31,856,858 ops/sec ±0.88% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 44.81% slower <span style="color: #D0CFCC;">than</span> Function::bind().
+
+  Native .bind() vs fast.partial()
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::bind() x 70,998,917 ops/sec ±0.78% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.partial() x 15,803,403 ops/sec ±0.77% (94 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.partial() v0.0.2 x 11,341,767 ops/sec ±0.77% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.partial() v0.0.0 x 11,364,804 ops/sec ±0.90% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.partial() x 965,364 ops/sec ±1.99% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.partial() x 268,596 ops/sec ±0.64% (97 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 77.74% slower <span style="color: #D0CFCC;">than</span> Function::bind().
+
+  Native .bind() vs fast.partial() with prebound functions
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Function::bind() x 73,019,042 ops/sec ±0.96% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.partial() x 39,485,403 ops/sec ±1.11% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.partial() v0.0.2 x 24,603,559 ops/sec ±1.21% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.partial() v0.0.0 x 28,014,743 ops/sec ±1.06% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.partial() x 9,746,299 ops/sec ±1.05% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.partial() x 34,842,324 ops/sec ±1.01% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 45.92% slower <span style="color: #D0CFCC;">than</span> Function::bind().
+
+  Native .map() vs fast.map() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::map() x 5,687,054 ops/sec ±0.94% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() x 12,917,252 ops/sec ±1.08% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.2a x 11,061,802 ops/sec ±1.12% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.1 x 12,709,726 ops/sec ±0.89% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.0 x 12,941,185 ops/sec ±0.99% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.map() x 10,539,724 ops/sec ±0.97% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.map() x 5,668,466 ops/sec ±1.28% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 127.13% faster <span style="color: #D0CFCC;">than</span> Array::map().
+
+  Native .map() vs fast.map() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::map() x 3,004,612 ops/sec ±1.12% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() x 4,451,044 ops/sec ±1.33% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.2a x 4,370,344 ops/sec ±0.79% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.1 x 4,390,883 ops/sec ±0.86% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.0 x 4,572,588 ops/sec ±1.23% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.map() x 4,291,434 ops/sec ±1.09% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.map() x 2,874,581 ops/sec ±0.93% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 48.14% faster <span style="color: #D0CFCC;">than</span> Array::map().
+
+  Native .map() vs fast.map() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::map() x 45,870 ops/sec ±1.08% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() x 48,649 ops/sec ±0.88% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.2a x 48,487 ops/sec ±0.98% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.1 x 48,445 ops/sec ±0.93% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.map() v0.0.0 x 49,974 ops/sec ±1.12% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.map() x 48,182 ops/sec ±0.88% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.map() x 45,640 ops/sec ±0.62% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 6.06% faster <span style="color: #D0CFCC;">than</span> Array::map().
+
+  Native .filter() vs fast.filter() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::filter() x 9,183,271 ops/sec ±1.21% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.filter() x 8,916,814 ops/sec ±0.96% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.filter() x 7,585,856 ops/sec ±0.75% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.filter() x 9,030,176 ops/sec ±0.93% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 2.9% slower <span style="color: #D0CFCC;">than</span> Array::filter().
+
+  Native .filter() vs fast.filter() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::filter() x 3,455,370 ops/sec ±1.02% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.filter() x 3,317,494 ops/sec ±1.01% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.filter() x 3,094,492 ops/sec ±1.01% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.filter() x 3,245,556 ops/sec ±1.02% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 3.99% slower <span style="color: #D0CFCC;">than</span> Array::filter().
+
+  Native .filter() vs fast.filter() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::filter() x 31,511 ops/sec ±1.28% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.filter() x 29,297 ops/sec ±0.76% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.filter() x 29,958 ops/sec ±0.77% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.filter() x 29,107 ops/sec ±0.97% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 7.03% slower <span style="color: #D0CFCC;">than</span> Array::filter().
+
+  Native .reduce() vs fast.reduce() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::reduce() x 14,927,098 ops/sec ±0.91% (94 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() x 14,813,066 ops/sec ±1.26% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2c x 10,475,693 ops/sec ±0.97% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2b x 14,925,283 ops/sec ±1.00% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2a x 14,680,622 ops/sec ±1.33% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.1 x 14,940,539 ops/sec ±1.16% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.0 x 14,805,830 ops/sec ±1.03% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.reduce() x 11,954,834 ops/sec ±1.60% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.reduce() x 14,179,580 ops/sec ±1.22% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 0.76% slower <span style="color: #D0CFCC;">than</span> Array::reduce().
+
+  Native .reduce() vs fast.reduce() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::reduce() x 4,787,677 ops/sec ±1.06% (86 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() x 4,757,150 ops/sec ±1.54% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2c x 4,235,234 ops/sec ±1.16% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2b x 4,669,581 ops/sec ±0.94% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2a x 4,737,552 ops/sec ±1.23% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.1 x 4,702,104 ops/sec ±1.50% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.0 x 4,785,177 ops/sec ±1.01% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.reduce() x 4,494,649 ops/sec ±1.63% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.reduce() x 4,699,190 ops/sec ±1.01% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 0.64% slower <span style="color: #D0CFCC;">than</span> Array::reduce().
+
+  Native .reduce() vs fast.reduce() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::reduce() x 53,082 ops/sec ±0.91% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() x 53,479 ops/sec ±0.98% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2c x 47,841 ops/sec ±0.98% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2b x 52,102 ops/sec ±0.99% (86 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.2a x 53,449 ops/sec ±0.99% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.1 x 52,096 ops/sec ±0.99% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduce() v0.0.0 x 52,392 ops/sec ±1.03% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.reduce() x 51,950 ops/sec ±1.09% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.reduce() x 52,252 ops/sec ±0.97% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 0.75% faster <span style="color: #D0CFCC;">than</span> Array::reduce().
+
+  Native .reduceRight() vs fast.reduceRight() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::reduceRight() x 15,491,178 ops/sec ±1.39% (94 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduceRight() x 26,916,076 ops/sec ±1.56% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.reduceRight() x 13,055,621 ops/sec ±0.86% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.reduceRight() x 19,821,086 ops/sec ±1.07% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 73.75% faster <span style="color: #D0CFCC;">than</span> Array::reduceRight().
+
+  Native .reduceRight() vs fast.reduceRight() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::reduceRight() x 4,785,652 ops/sec ±1.17% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduceRight() x 10,023,138 ops/sec ±1.00% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.reduceRight() x 4,486,958 ops/sec ±1.02% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.reduceRight() x 9,784,845 ops/sec ±1.03% (87 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 109.44% faster <span style="color: #D0CFCC;">than</span> Array::reduceRight().
+
+  Native .reduceRight() vs fast.reduceRight() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::reduceRight() x 53,146 ops/sec ±1.25% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.reduceRight() x 110,202 ops/sec ±1.21% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.reduceRight() x 52,492 ops/sec ±0.97% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.reduceRight() x 108,689 ops/sec ±0.95% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 107.36% faster <span style="color: #D0CFCC;">than</span> Array::reduceRight().
+
+  Native .forEach() vs fast.forEach() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::forEach() x 25,430,832 ops/sec ±0.86% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() x 25,145,355 ops/sec ±0.79% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.2a x 26,423,141 ops/sec ±1.07% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.1 x 25,500,874 ops/sec ±0.90% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.0 x 28,142,672 ops/sec ±1.01% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.forEach() x 23,256,301 ops/sec ±1.65% (85 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.forEach() x 24,219,882 ops/sec ±1.01% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 1.12% slower <span style="color: #D0CFCC;">than</span> Array::forEach().
+
+  Native .forEach() vs fast.forEach() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::forEach() x 8,866,132 ops/sec ±0.78% (90 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() x 9,459,695 ops/sec ±0.83% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.2a x 9,608,422 ops/sec ±1.04% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.1 x 9,702,149 ops/sec ±0.89% (88 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.0 x 9,508,301 ops/sec ±0.99% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.forEach() x 9,058,292 ops/sec ±0.89% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.forEach() x 8,623,478 ops/sec ±0.93% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 6.69% faster <span style="color: #D0CFCC;">than</span> Array::forEach().
+
+  Native .forEach() vs fast.forEach() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::forEach() x 107,027 ops/sec ±0.95% (89 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() x 104,864 ops/sec ±0.97% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.2a x 104,905 ops/sec ±0.90% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.1 x 105,832 ops/sec ±1.00% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.forEach() v0.0.0 x 103,610 ops/sec ±0.98% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.forEach() x 104,553 ops/sec ±1.33% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.forEach() x 105,024 ops/sec ±0.89% (94 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 2.02% slower <span style="color: #D0CFCC;">than</span> Array::forEach().
+
+  Native .some() vs fast.some() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::some() x 26,080,027 ops/sec ±1.02% (94 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.some() x 26,353,303 ops/sec ±1.05% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.some() x 18,837,016 ops/sec ±0.64% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.some() x 25,049,343 ops/sec ±0.92% (86 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 1.05% faster <span style="color: #D0CFCC;">than</span> Array::some().
+
+  Native .some() vs fast.some() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::some() x 9,431,728 ops/sec ±0.78% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.some() x 8,744,827 ops/sec ±0.92% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.some() x 7,736,989 ops/sec ±0.74% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.some() x 8,391,086 ops/sec ±0.77% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 7.28% slower <span style="color: #D0CFCC;">than</span> Array::some().
+
+  Native .some() vs fast.some() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::some() x 103,896 ops/sec ±0.83% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.some() x 111,814 ops/sec ±0.43% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.some() x 111,625 ops/sec ±0.83% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.some() x 99,046 ops/sec ±0.62% (91 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 7.62% faster <span style="color: #D0CFCC;">than</span> Array::some().
+
+  Native .every() vs fast.every() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::every() x 24,935,797 ops/sec ±0.52% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.every() x 25,471,783 ops/sec ±0.59% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.every() x 19,396,087 ops/sec ±0.70% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.every() x 25,044,929 ops/sec ±1.01% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 2.15% faster <span style="color: #D0CFCC;">than</span> Array::every().
+
+  Native .every() vs fast.every() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::every() x 8,479,601 ops/sec ±0.97% (87 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.every() x 8,585,762 ops/sec ±1.00% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.every() x 7,618,369 ops/sec ±1.00% (94 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.every() x 8,485,507 ops/sec ±0.81% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 1.25% faster <span style="color: #D0CFCC;">than</span> Array::every().
+
+  Native .every() vs fast.every() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::every() x 101,305 ops/sec ±0.88% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.every() x 100,672 ops/sec ±0.80% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> underscore.every() x 100,151 ops/sec ±0.77% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> lodash.every() x 100,818 ops/sec ±0.82% (90 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 0.63% slower <span style="color: #D0CFCC;">than</span> Array::every().
+
+  Native .concat() vs fast.concat() (3 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::concat() x 3,013,504 ops/sec ±1.03% (93 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.concat() x 15,680,895 ops/sec ±0.93% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 420.35% faster <span style="color: #D0CFCC;">than</span> Array::concat().
+
+  Native .concat() vs fast.concat() (10 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::concat() x 2,431,367 ops/sec ±0.88% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.concat() x 6,973,176 ops/sec ±1.13% (93 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 186.80% faster <span style="color: #D0CFCC;">than</span> Array::concat().
+
+  Native .concat() vs fast.concat() (1000 items)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::concat() x 710,953 ops/sec ±0.90% (91 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.concat() x 116,874 ops/sec ±0.84% (94 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 83.56% slower <span style="color: #D0CFCC;">than</span> Array::concat().
+
+  Native .concat() vs fast.concat() (1000 items, using apply)
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> Array::concat() x 117,383 ops/sec ±0.92% (92 runs sampled)</span>
+    <span style="color: #26A269;">✓</span> <span style="color: #D0CFCC;"> fast.concat() x 106,517 ops/sec ±0.95% (92 runs sampled)</span>
+
+    <span style="color: #D0CFCC;">Result:</span> fast.js <span style="color: #D0CFCC;">is</span> 9.26% slower <span style="color: #D0CFCC;">than</span> Array::concat().
+
+  
+<span style="color: #D0CFCC;">Finished in 1360 seconds</span>
+
+</pre>
+  </body>
+</html>
